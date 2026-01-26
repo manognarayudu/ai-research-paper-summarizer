@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Research Paper Summarizer</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+<div class="container">
+
+    <h1>📄 AI Research Paper Summarizer</h1>
+    <p class="subtitle">
+        Upload a research paper PDF to extract summary, metadata,
+        and perform semantic search.
+    </p>
+
+    <!-- Upload -->
+    <div class="section">
+        <h2>⬆ Upload Research Paper</h2>
+        <form action="/upload/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="pdf" required>
+            <button type="submit">Analyze PDF</button>
+        </form>
+    </div>
+
+    <!-- Summary -->
+    {% if summary %}
+    <div class="section">
+        <h2>🧠 Summary</h2>
+        <p class="box">{{ summary }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Metadata -->
+    {% if metadata %}
+    <div class="section">
+        <h2>📑 Metadata</h2>
+        <ul class="meta">
+            <li><strong>Title:</strong> {{ metadata.Title }}</li>
+            <li><strong>Author:</strong> {{ metadata.Author }}</li>
+            <li><strong>Subject:</strong> {{ metadata.Subject }}</li>
+            <li><strong>Pages:</strong> {{ metadata.Pages }}</li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Semantic Search (ALWAYS visible) -->
+    <div class="section">
+        <h2>🔍 Semantic Search</h2>
+
+        <form action="/search/" method="post">
+            {% csrf_token %}
+            <input type="text" name="query"
+                   placeholder="Ask a question about the paper…" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if results %}
+        <ul class="results">
+            {% for r in results %}
+                <li>{{ r }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>

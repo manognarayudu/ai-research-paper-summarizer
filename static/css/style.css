@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa, #e4ebf5);
+    margin: 0;
+    padding: 40px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+input[type="file"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #4f6df5;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #3f5ce0;
+}
+
+.content {
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.metadata p {
+    margin: 6px 0;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.results ul {
+    padding-left: 20px;
+}
+
+.results li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+.section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}

@@ -1,0 +1,6 @@
+django
+PyPDF2
+transformers
+torch
+sentence-transformers
+faiss-cpu
